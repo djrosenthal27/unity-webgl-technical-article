@@ -1,1 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+<style>
+body {
+    font-family: 'Lato';font-size: 16px;
+}
+img {
+    width: 600px;
+    height: auto;
+    border: 5px solid #000;
+}
+div {
+    width: 960px;
+    padding: 100px;
+}
+a {
+    text-decoration: none;
+}
+<title>How do I make a Unity game playable in a desktop browser?</title>
+</style>
+</head>
+<body>
+<div>
 
+<h1>Test How do I make a Unity game playable in a desktop browser?</h1>
+
+<hr>
+
+<p>
+The <b>Unity engine</b> offers developers the ability to create <b>WebGL builds</b> of their games, making 2D and 3D games playable in most major web browsers. These builds alleviate the need for players to install plug-ins or download files for a game to be played. This article explains how Unity developers can build desktop browser games with WebGL and host them on the web.
+</p>
+
+<p>
+This article applies to all Unity Editor versions from 2019.3 and on, as well as all Unity Hub versions from 3.0 and on.
+</p>
+
+<p>
+<i><b>Note:</b> WebGL provides gameplay support for any platform with a browser, which includes many mobile and console platforms. However, WebGL builds are most efficient for desktop games that aren't graphically demanding, so this article is intended for such games.</i>
+</p>
+
+<hr>
+<h2 id="contents">Table of Contents</h2>
+<ul>
+<li><a href="#install">Install WebGL build module</a></li>
+<li><a href="#configure">Configure build settings</a></li>
+<li><a href="#bpw">Build and publish a game on the web</a></li>
+<ul>
+<li><a href="#bpi">Build and publish a game on itch.io</a></li>
+<li><a href="#bpup">Build and publish a game on Unity Play</a></li>
+</ul>
+</ul>
+<hr>
+
+<h2 id="install">Install WebGL build module</h2>
+
+<p>
+When a version of the Unity Editor is installed, the WebGL build module is not automatically included with it. The following steps ensure the <b>WebGL Build Support module</b> is added to your editor.
+</p>
+
+<ol>
+<li><b>Open</b> Unity Hub and <b>select</b> 'Projects' on the sidebar.</li><br>
+<li><b>Find</b> the project you want to make playable in the browser and <b>identify</b> its editor version.</li><br>
+<img src="images/iwbm1.png" alt="Install Image 1"><br><br>
+<li><b>Select</b> 'Installs' on the sidebar and <b>find</b> the Unity Editor install corresponding to the version used in your project. </li><br>
+<li>If a 'WebGL' label appears under the install's file path, then <a href="#configure">you're ready to configure your project's build settings.</a></li><br>
+<img src="images/iwbm2.png" alt="Install Image 2"><br><br>
+<li>If the Unity Editor install doesn't have a 'WebGL' label, <b>click</b> the install's settings icon, then <b>select</b> 'Add modules'.</li><br>
+<img src="images/iwbm3.png" alt="Install Image 3"><br><br>
+<li>In the popup window that appears, <b>check</b> the 'WebGL Build Support' option listed under 'Platforms', then <b>click</b> the blue 'Install' button.</li><br>
+<img src="images/iwbm4.png" alt="Install Image 4"><br><br>
+<li>In the Downloads window, your project's Unity Editor install should be listed under 'Active' while the WebGL Build Support module downloads. Once the module is finished downloading, the install will move under 'Recent'.</li><br>
+<img src="images/iwbm5.png" alt="Install Image 5"><br><br>
+</ol>
+
+<p style="color:black; text-align:right"><a href="#contents">Back to top</a></p>
+
+<hr>
+<h2 id="configure">Configure build settings</h2>
+
+<p>
+With the WebGL Build Support module installed, your project can be turned into a WebGL build.</p>
+
+<ol>
+<li>In the Unity Hub, <b>select</b> 'Projects' and <b>open</b> the project you want to make playable in the browser.</li><br>
+<li>In the Unity Editor, <b>select</b> 'File > Build Settings...' from the menu bar to open the Build Settings window. Alternatively, you can <b>use</b> the shortcut Ctrl+Shift+B to open the window.</li><br>
+<img src="images/cbs1.png" alt="Configure Image 1"><br><br>
+<li>Under the Platform panel, <b>choose</b> the 'WebGL' option. If there isn't a Unity logo on the right side of the 'WebGL' option, <b>click</b> the 'Switch Platform' button. When the project is done switching platforms, the Unity logo will appear next to 'WebGL' in the Platform panel.</li><br>
+<img src="images/cbs2.png" alt="Configure Image 2"><br><br>
+<li>With the project configured to the WebGL platform, you can change settings such as texture compression, code optimization, and maximum texture size to your liking.</li><br>
+<i><b>Note:</b> Clicking 'Player Settings...' in the bottom-left corner will open a window with dozens of settings options. Although out of the scope of this article, you can read about them <a href="https://docs.unity3d.com/2022.3/Documentation/Manual/class-PlayerSettingsWebGL.html">in Unity's documentation.</a></i><br><br>
+<img src="images/cbs3.png" alt="Configure Image 3"><br><br>
+<li><b>Ensure</b> that all of the scenes you want in your game appear in the 'Scenes In Build' panel with a checkmark and index number next to them. Scenes can be added to the build by dragging them from the Unity Editor's Project window into the 'Scenes In Build' panel, or by opening the scenes and clicking 'Add Open Scenes' below the 'Scenes In Build' panel. The scene with index 0 will appear first when the game is launched.</li><br>
+<img src="images/cbs4.png" alt="Configure Image 4"><br><br>
+</ol>
+
+<p style="color:black; text-align:right"><a href="#contents">Back to top</a></p>
+    
+<hr>
+<h2 id="bpw">Build and publish a game on the web</h2>
+
+<p>
+Developers can choose between numerous websites for hosting their WebGL games, including their own websites. The two choices discussed in this article are <b>itch.io</b> and <b>Unity Play</b>. </p>
+
+<p>
+Many independent game developers use <a href="https://itch.io/">itch.io</a> because it allows games to be monetized, supports both downloadable and browser games, and doesn't restrict which engines can be used to create games hosted on the site. </p>
+
+<p>
+<a href="https://play.unity.com/">Unity Play</a> is less popular and only supports WebGL builds created with Unity, but its integration into the Unity Engine enables a simple and automated method of uploading games to the site. </p>
+
+<h3 id="bpi">Build and publish a game on itch.io</h3>
+
+<h4>Build the game</h4>
+
+<ol>
+<li>In the Unity Editor, <b>open</b> the Build Settings window using 'File > Build Settings...' from the menu bar, or by using Ctrl+Shift+B.</li><br>
+<li>With 'WebGL' selected in the Platform panel, <b>click</b> 'Build'.</li><br>
+<img src="images/bgi1.png" alt="Build Itch Image 1"><br><br>
+<li>A popup window for your computer's file system will appear. <b>Create</b> an appropriately named folder for your build data, then <b>select</b> it.</li><br>
+<i><b>Note:</b> The build folder can go in your project's root folder, but it cannot be placed in the 'Assets' folder.</i> <br><br>
+<img src="images/bgi2.png" alt="Build Itch Image 2"><br><br>
+<li>Once the game is finished building, <b>find</b> the build folder in your file system and <b>compress</b> it into a ZIP file. The steps for compressing a folder into a ZIP file vary by operating system.</li><br>
+<img src="images/bgi3.png" alt="Build Itch Image 3"><br><br>
+</ol>
+
+<h4>Publish the game on itch.io</h4>
+
+<ol>
+<li><b>Open</b> itch.io in a browser and <b>log in</b> or <b>register</b> for an account.</li><br>
+<li><b>Click</b> the arrow in the top-right corner of the page, then <b>select</b> 'Upload new project' to enter the 'Edit game' page.</li><br>
+<img src="images/pgi1.png" alt="Publish Itch Image 1"><br><br>
+<li><b>Type</b> your game's title into the Title field.</li><br>
+<img src="images/pgi2.png" alt="Publish Itch Image 2"><br><br>
+<li>Under 'Classifications', <b>select</b> 'Games'. Under 'Kind of project', <b>select</b> 'HTML'.</li><br>
+<img src="images/pgi3.png" alt="Publish Itch Image 3"><br><br>
+<img src="images/pgi4.png" alt="Publish Itch Image 4"><br><br>
+<li>Under 'Uploads', <b>click</b> the 'Upload files' button, <b>locate</b> the zipped build folder in your file system, and <b>select</b> it. <b>Check</b> the 'This file will be played in the browser' option.</li><br>
+<img src="images/pgi5.png" alt="Publish Itch Image 5"><br><br>
+<img src="images/pgi6.png" alt="Publish Itch Image 6"><br><br>
+<li><b>Set</b> the viewport dimensions based on your game's intended aspect ratio.</li><br>
+<img src="images/pgi7.png" alt="Publish Itch Image 7"><br><br>
+<li><b>Fill out</b> all other fields to your liking, such as the tagline, cover image, frame options, description, and genre.</li><br>
+<li>If you want your game to be released to the public, <b>select</b> 'Public' under 'Visibility & access'. Otherwise, <b>select</b> 'Draft' or 'Restricted'.</li><br>
+<img src="images/pgi8.png" alt="Publish Itch Image 8"><br><br>
+<li>When you're ready, <b>click</b> 'Save' and then 'View page' to see your game run in the browser.</li><br>
+<img src="images/pgi9.png" alt="Publish Itch Image 9"><br><br>
+<li>You can click 'Edit game' at the top of the play screen to go back and adjust the settings. You can also click 'Edit theme' to change your webpage's background and text colors.</li><br>
+<img src="images/pgi10.png" alt="Publish Itch Image 10"><br><br>
+</ol>
+
+<h3 id="bpup">Build and publish a game on Unity Play</h3>
+
+<ol>
+<li>From the Unity Editor menu bar, <b>select</b> 'Window > Package Manager' to open the Package Manager window.</li><br>
+<img src="images/bpup1.png" alt="Unity Play Image 1"><br><br>
+<li>For the 'Packages' dropdown, <b>choose</b> 'Unity Registry'.</li><br>
+<img src="images/bpup2.png" alt="Unity Play Image 2"><br><br>
+<li><b>Search</b> for 'WebGL Publisher' and <b>click</b> 'Install'.</li><br>
+<i><b>Note:</b> The most recent version of the WebGL Publisher package is version 4.2.3, which works for Unity Editor versions from 2019.3 and on.</i><br><br>
+<img src="images/bpup3.png" alt="Unity Play Image 3"><br><br>
+<li>From the Unity Editor menu bar, <b>select</b> 'Publish > WebGL Project' to make the Publish window appear.</li><br>
+<img src="images/bpup4.png" alt="Unity Play Image 4"><br><br>
+<li><b>Click</b> 'Get started', then 'Build and Publish'.</li><br>
+<img src="images/bpup5.png" alt="Unity Play Image 5"><br><br>
+<li>A popup window for your computer's file system will appear with a new folder called 'WebGL Builds' open. <b>Create</b> an appropriately named folder for your build data within 'WebGL Builds', then <b>select</b> it.</li><br>
+<img src="images/bpup6.png" alt="Unity Play Image 6"><br><br>
+<li>Once the game is finished building, a browser tab will appear containing the edit screen for your game on Unity Play.</li><br>
+<i><b>Note:</b> You will automatically be logged into your Unity account. You need a Unity account to use the Unity Editor and publish games on Unity Play.</i><br><br>
+<li>In Unity Play, <b>add</b> a thumbnail for your game and <b>fill out</b> its title and description fields.</li><br>
+<img src="images/bpup7.png" alt="Unity Play Image 7"><br><br>
+<li><b>Click</b> 'Play' to play your game in the browser. The first 15 seconds of your playthrough can be used as a preview for the game. You can choose to re-record the preview.</li><br>
+<img src="images/bpup8.png" alt="Unity Play Image 8"><br><br>
+<li>When you're ready, <b>click</b> 'Save'. You can return to the edit screen by clicking the three-dots icon in the play screen, and then selecting 'Edit' in the dropdown.</li><br>
+<img src="images/bpup9.png" alt="Unity Play Image 9"><br><br>
+<img src="images/bpup10.png" alt="Unity Play Image 10"><br><br>
+</ol>
+
+<p style="color:black; text-align:right"><a href="#contents">Back to top</a></p>
+    
+<hr>
+
+</div>
+</body>
+</html>
